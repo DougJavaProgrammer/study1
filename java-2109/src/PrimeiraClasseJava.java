@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import org.graalvm.compiler.asm.aarch64.AArch64Assembler.LogicalImmediateTable;
-
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
 import cursojava.constantes.StatusAluno;
