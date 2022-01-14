@@ -4,13 +4,21 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import org.graalvm.compiler.asm.aarch64.AArch64Assembler.LogicalImmediateTable;
+
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
 import cursojava.constantes.StatusAluno;
 
 public class PrimeiraClasseJava {
 	public static void main(String[] args) {
-
+		/*Criando uma simples validação de permissão de acesso*/
+		String login = JOptionPane.showInputDialog("Digite o Login: ");
+		String senha = JOptionPane.showInputDialog("Digite o Senha: ");
+		
+		if (login.equalsIgnoreCase("admin") && senha.equalsIgnoreCase("admin")) {
+			
+		
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		
 		/*é uma lista que dentro dela temos uma chave que identifica uma sequencia de valores também*/
@@ -111,6 +119,9 @@ public class PrimeiraClasseJava {
 		for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
 			System.out.println("Resultado = " +aluno.getNome()+" - " + aluno.getAlunoAprovado()+ " com média de = " + aluno.getMediaNota());
 		}
+		
+		
 	}
-
+	}
+		
 }
