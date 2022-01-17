@@ -6,7 +6,7 @@ import java.util.List;
 import cursojava.constantes.StatusAluno;
 
 /*Esta classe representa o nome do Aluno*/
-
+/*Classe filha extendendo de Pessoa*/
 public class Aluno extends Pessoa{
 
 	/* Estes são os atributos dos alunos */
