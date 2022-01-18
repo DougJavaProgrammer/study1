@@ -166,5 +166,14 @@ public class Aluno extends Pessoa{
 			return false;
 		return true;
 	}
+	
+	@Override /*Método já existe na super classe pessoa e está sendo chamado*/
+	public boolean pessoaMaiorIdade() {
+		return idade >=21; //alterado o método somente para a classe alunoa
+	}
+	
+	public String msgMaiorIdade () {
+		return this.pessoaMaiorIdade() ? "Obaaa, vc é maior de idade": "Ixiii, vc é menor de idade";
+	}
 
 }
