@@ -1,8 +1,8 @@
 package cursojava.classes;
 
 /*Herenaça - Classe pai, ou classe master ou superclasse (Atributos comuns a todos os objetos filhos*/
-
-public class Pessoa {
+/*Abstract impede da classe ser instanciada, sendo necessário extendê-la*/
+public abstract class Pessoa {
 
 	protected String nome;
 	protected int idade;
@@ -12,6 +12,8 @@ public class Pessoa {
 	protected String nomeMae;
 	protected String nomePai;
 	
+	/*método abstrato que fica na classe pai é obrigatório para as classes filhas*/
+	public abstract double salario ();
 	
 	public String getNome() {
 		return nome;
@@ -57,7 +59,7 @@ public class Pessoa {
 	}
 	
 	
-	/*Retorna true caso seja 18 ou mais, senão retorna false*/
+	/*Retorna true caso seja 18 ou mais, senão retorna falsex'*/
 	public boolean pessoaMaiorIdade () {
 		return idade >= 18;
 		
