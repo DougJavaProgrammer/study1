@@ -15,13 +15,9 @@ public class PrimeiraClasseJava {
 		String login = JOptionPane.showInputDialog("Digite o Login: ");
 		String senha = JOptionPane.showInputDialog("Digite o Senha: ");
 		
-		Secretario secretario = new Secretario(); /*Trabalhando diretamente com o objeto*/
-		secretario.setLogin(login);
-		secretario.setSenha(senha);
 		
 		
-		
-		if (secretario.autenticar()) { /*se TRUE, libera acesso, se FALSE, não libera acesso*/
+		if (new Secretario().autenticar(login, senha)) { /*se TRUE, libera acesso, se FALSE, não libera acesso*/
 			
 			
 		
