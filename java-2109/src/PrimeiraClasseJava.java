@@ -5,9 +5,11 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import cursojava.classes.Aluno;
+import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
-import cursojava.classes.Secretario;
+import cursojava.classesasauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
+import cursojava.interfaces.PermitirAcesso;
 
 public class PrimeiraClasseJava {
 	public static void main(String[] args) {
@@ -15,9 +17,13 @@ public class PrimeiraClasseJava {
 		String login = JOptionPane.showInputDialog("Digite o Login: ");
 		String senha = JOptionPane.showInputDialog("Digite o Senha: ");
 		
+		FuncaoAutenticacao autenticacao = new FuncaoAutenticacao();
 		
 		
-		if (new Secretario().autenticar(login, senha)) { /*se TRUE, libera acesso, se FALSE, não libera acesso*/
+		PermitirAcesso permitirAcesso = new Diretor(login, senha);
+				
+				
+		if (autenticacao.autenticarCursoJava(permitirAcesso)) { /*vou travar o contrato para autorizar somente quem tem o contrato 100% legítimo*/
 			
 			
 		
