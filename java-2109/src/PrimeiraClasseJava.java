@@ -27,14 +27,14 @@ public class PrimeiraClasseJava {
 			
 			
 		
-		List<Aluno> alunos = new ArrayList<Aluno>();
+		List<Aluno> alunos = null;
 		
 		/*é uma lista que dentro dela temos uma chave que identifica uma sequencia de valores também*/
 		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 		
 	
 
-		for (int qtd = 1; qtd <= 5; qtd++) {
+		for (int qtd = 1; qtd <= 1; qtd++) {
 
 			/*
 			 * new Aluno é uma instancia (criação de objeto) Aluno é uma referencia para o
@@ -130,7 +130,7 @@ public class PrimeiraClasseJava {
 		
 		
 	} else {
-		JOptionPane.showMessageDialog(null, "ACesso não permitido");
+		JOptionPane.showMessageDialog(null, "Acesso não permitido");
 	}
 	}
 		
