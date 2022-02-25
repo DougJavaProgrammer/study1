@@ -20,7 +20,7 @@ public class PrimeiraClasseJava {
 		FuncaoAutenticacao autenticacao = new FuncaoAutenticacao();
 		
 		
-		PermitirAcesso permitirAcesso = new Diretor(login, senha);
+		PermitirAcesso permitirAcesso = new Diretor(login, senha); //alteração feita em 25/02/2022
 				
 				
 		if (autenticacao.autenticarCursoJava(permitirAcesso)) { /*vou travar o contrato para autorizar somente quem tem o contrato 100% legítimo*/
