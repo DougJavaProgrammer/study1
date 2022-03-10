@@ -28,7 +28,7 @@ public class PrimeiraClasseJava {
 			
 			
 		
-		List<Aluno> alunos = null;
+		List<Aluno> alunos = new ArrayList<Aluno>();
 		
 		/*é uma lista que dentro dela temos uma chave que identifica uma sequencia de valores também*/
 		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
@@ -135,7 +135,14 @@ public class PrimeiraClasseJava {
 	}
 			}catch (Exception e) {
 				e.printStackTrace();//imprime o erro no console Java
-				JOptionPane.showMessageDialog(null, "Erro ao processar notas \n"  + e.getMessage());
+				
+				for (int i = 0; i < e.getStackTrace().length; i++) {
+					System.out.println("Classe de erro: " + e.getStackTrace()[i].getClassName());
+					System.out.println("Método do erro: " + e.getStackTrace()[i].getMethodName());
+					System.out.println("Linha de erro: "+ e.getStackTrace()[i].getLineNumber());
+				}
+				
+				JOptionPane.showMessageDialog(null, "Erro ao processar notas \n" + e.getMessage());
 			}
 		
 	}
