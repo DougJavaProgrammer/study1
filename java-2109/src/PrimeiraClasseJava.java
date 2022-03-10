@@ -13,7 +13,7 @@ import cursojava.interfaces.PermitirAcesso;
 
 public class PrimeiraClasseJava {
 	public static void main(String[] args) {
-		/*Alteração do dia 08/03/20222*/
+		/*iniciando try catch*/
 		/*Criando uma simples validação de permissão de acesso*/
 		String login = JOptionPane.showInputDialog("Digite o Login: ");
 		String senha = JOptionPane.showInputDialog("Digite o Senha: ");
