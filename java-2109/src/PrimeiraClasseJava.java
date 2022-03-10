@@ -13,7 +13,7 @@ import cursojava.interfaces.PermitirAcesso;
 
 public class PrimeiraClasseJava {
 	public static void main(String[] args) {
-		/*iniciando try catch*/
+			try {
 		/*Criando uma simples validação de permissão de acesso*/
 		String login = JOptionPane.showInputDialog("Digite o Login: ");
 		String senha = JOptionPane.showInputDialog("Digite o Senha: ");
@@ -133,6 +133,11 @@ public class PrimeiraClasseJava {
 	} else {
 		JOptionPane.showMessageDialog(null, "Acesso não permitido");
 	}
+			}catch (Exception e) {
+				e.printStackTrace();//imprime o erro no console Java
+				JOptionPane.showMessageDialog(null, "Erro ao processar notas \n"  + e.getMessage());
+			}
+		
 	}
 		
 }
