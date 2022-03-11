@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +15,8 @@ import cursojava.interfaces.PermitirAcesso;
 public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 			try {
-		/*11/03/2022*/
+	
+				
 		/*Criando uma simples validação de permissão de acesso*/
 		String login = JOptionPane.showInputDialog("Digite o Login: ");
 		String senha = JOptionPane.showInputDialog("Digite o Senha: ");
@@ -135,7 +137,7 @@ public class PrimeiraClasseJava {
 	} else {
 		JOptionPane.showMessageDialog(null, "Acesso não permitido");
 	}
-			}catch (Exception e) {
+			}catch (NumberFormatException e) {
 				StringBuilder saida = new StringBuilder();
 				
 				e.printStackTrace();//imprime o erro no console Java
@@ -147,7 +149,10 @@ public class PrimeiraClasseJava {
 					saida.append("\n Class "+ e.getClass().getName());
 				}
 				
-				JOptionPane.showMessageDialog(null, "Erro ao processar notas \n" + saida.toString());
+				JOptionPane.showMessageDialog(null, "Erro de conversão número \n" + saida.toString());
+			}catch (NullPointerException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage());
+				
 			}
 		
 	}
