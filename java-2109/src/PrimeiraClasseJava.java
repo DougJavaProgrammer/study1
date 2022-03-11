@@ -22,7 +22,7 @@ public class PrimeiraClasseJava {
 		FuncaoAutenticacao autenticacao = new FuncaoAutenticacao();
 		
 		
-		PermitirAcesso permitirAcesso = new Diretor(login, senha); //alteração feita em 25/02/22
+		PermitirAcesso permitirAcesso = new Diretor(login, senha); 
 				
 				
 		if (autenticacao.autenticarCursoJava(permitirAcesso)) { /*vou travar o contrato para autorizar somente quem tem o contrato 100% legítimo*/
@@ -44,8 +44,8 @@ public class PrimeiraClasseJava {
 			 */
 
 			String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + "?");
+			String idade = JOptionPane.showInputDialog("Qual a idade do aluno " + qtd + "?");
 			/*
-			 * String idade = JOptionPane.showInputDialog("Qual a idade do aluno?"); String
 			 * dataNascimento = JOptionPane.showInputDialog("Qual a data de nascimento?");
 			 * String rg = JOptionPane.showInputDialog("Qual o RG?"); String cpf =
 			 * JOptionPane.showInputDialog("Qual o CPF?"); String mae =
@@ -59,8 +59,9 @@ public class PrimeiraClasseJava {
 			Aluno aluno1 = new Aluno();
 
 			aluno1.setNome(nome);
+			aluno1.setIdade(Integer.valueOf(idade));
+			
 			/*
-			 * aluno1.setIdade(Integer.valueOf(idade));
 			 * aluno1.setDataMatricula(dataMatricula);
 			 * aluno1.setDataNascimento(dataNascimento); aluno1.setNomePai(pai);
 			 * aluno1.setNomeMae(mae); aluno1.setNomeEscola(escola);
@@ -135,15 +136,18 @@ public class PrimeiraClasseJava {
 		JOptionPane.showMessageDialog(null, "Acesso não permitido");
 	}
 			}catch (Exception e) {
+				StringBuilder saida = new StringBuilder();
+				
 				e.printStackTrace();//imprime o erro no console Java
 				
 				for (int i = 0; i < e.getStackTrace().length; i++) {
-					System.out.println("Classe de erro: " + e.getStackTrace()[i].getClassName());
-					System.out.println("Método do erro: " + e.getStackTrace()[i].getMethodName());
-					System.out.println("Linha de erro: "+ e.getStackTrace()[i].getLineNumber());
+					saida.append("\n Classe de erro: " + e.getStackTrace()[i].getClassName());
+					saida.append("\n Método do erro: " + e.getStackTrace()[i].getMethodName());
+					saida.append("\n Linha de erro: "+ e.getStackTrace()[i].getLineNumber());
+					saida.append("\n Class "+ e.getClass().getName());
 				}
 				
-				JOptionPane.showMessageDialog(null, "Erro ao processar notas \n" + e.getMessage());
+				JOptionPane.showMessageDialog(null, "Erro ao processar notas \n" + saida.toString());
 			}
 		
 	}
