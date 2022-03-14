@@ -1,7 +1,9 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -16,7 +18,9 @@ public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 			try {
 	
-		File fil = new File("arquivo.txt");		
+		File fil = new File("arquivo.txt");	
+		Scanner scanner = new Scanner(fil);
+	
 		
 		/*Criando uma simples validação de permissão de acesso*/
 		String login = JOptionPane.showInputDialog("Digite o Login: ");
@@ -154,6 +158,9 @@ public class PrimeiraClasseJava {
 			}catch (NullPointerException e) {
 				JOptionPane.showMessageDialog(null, e.getMessage());
 				
+			}catch (Exception e) {
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Erro inesperado: "+ e.getMessage());
 			}
 		
 	}
