@@ -161,6 +161,8 @@ public class PrimeiraClasseJava {
 			}catch (Exception e) {
 				e.printStackTrace();
 				JOptionPane.showMessageDialog(null, "Erro inesperado: "+ e.getMessage());
+			}finally {/*Sempre é executado ocorrendo erros ou não*/
+				JOptionPane.showMessageDialog(null, "Obrigado por aprender JAVA");
 			}
 		
 	}
