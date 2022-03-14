@@ -12,16 +12,14 @@ import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
 import cursojava.classesasauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
+import cursojava.excecao.ExcecaoProcessarNota;
 import cursojava.interfaces.PermitirAcesso;
 
 public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 			try {
-	
-		File fil = new File("arquivo.txt");	
-		Scanner scanner = new Scanner(fil);
-	
-		
+				
+				lerArquivo();
 		/*Criando uma simples validação de permissão de acesso*/
 		String login = JOptionPane.showInputDialog("Digite o Login: ");
 		String senha = JOptionPane.showInputDialog("Digite o Senha: ");
@@ -165,6 +163,14 @@ public class PrimeiraClasseJava {
 				JOptionPane.showMessageDialog(null, "Obrigado por aprender JAVA");
 			}
 		
+	}
+	public static void lerArquivo () throws ExcecaoProcessarNota {
+		try {
+		File fil = new File("arquivo.txt");	
+		Scanner scanner = new Scanner(fil);
+		}catch (FileNotFoundException e) {
+			throw new ExcecaoProcessarNota(e.getMessage());
+		}
 	}
 		
 }
