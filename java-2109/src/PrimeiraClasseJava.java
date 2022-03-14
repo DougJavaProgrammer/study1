@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +16,8 @@ public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 			try {
 	
-				
+		File fil = new File("arquivo.txt");		
+		
 		/*Criando uma simples validação de permissão de acesso*/
 		String login = JOptionPane.showInputDialog("Digite o Login: ");
 		String senha = JOptionPane.showInputDialog("Digite o Senha: ");
