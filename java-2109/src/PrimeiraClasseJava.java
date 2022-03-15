@@ -166,11 +166,11 @@ public class PrimeiraClasseJava {
 	}
 	public static void lerArquivo () throws ExcecaoProcessarNota {
 		try {
-		File fil = new File("arquivo.txt");	
-		Scanner scanner = new Scanner(fil);
-		}catch (FileNotFoundException e) {
-			throw new ExcecaoProcessarNota(e.getMessage());
+		//File fil = new File("arquivo.txt");	
+		//Scanner scanner = new Scanner(fil);
+		}catch (Exception e) {
+			e.printStackTrace();
 		}
-	}
-		
+		}
+			
 }
