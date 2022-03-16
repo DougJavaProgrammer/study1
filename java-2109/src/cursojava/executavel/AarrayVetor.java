@@ -2,22 +2,33 @@ package cursojava.executavel;
 
 import javax.swing.JOptionPane;
 
+import cursojava.classes.Aluno;
+import cursojava.classes.Disciplina;
+
 public class AarrayVetor {
 	public static void main(String[] args) {
 		
 		try {
-		/*Diferentes formas de atribuição de valores*/
-		String [] valores = new String [4];
-		valores[0] = "douglas";
-		valores[1] = "90";
-		valores[2] = "curso de Java";
-		valores[3] = "dougmoroli@gmail.com";
+		double [] notas = {8.8,9.7,7.6,5.4};
+		double [] notasLogica = {9.9,7.9,6.9,9.7};
 			
-								
-		for (int pos = 0; pos < valores.length; pos++) {
-			System.out.println("Valor na posição "+(pos+1) + " é = "+valores[pos]);
-	
-		}
+		/*Criação do aluno*/	
+		Aluno aluno = new Aluno();
+		aluno.setNome("Douglas Oliveira");
+		aluno.setNomeEscola("JavaDev");
+		
+		/*Criação da disciplina*/
+		Disciplina disciplina = new Disciplina();
+		disciplina.setDisciplina("Curso de Java");
+		disciplina.setNota(notas);
+		aluno.getDisciplinas().add(disciplina);
+		
+		/*Criação do disciplina2*/
+		Disciplina disciplina2 = new Disciplina();
+		disciplina2.setDisciplina("Lógica de Programação");
+		disciplina2.setNota(notasLogica);
+		aluno.getDisciplinas().add(disciplina2);
+		
 		
 	}catch (Exception e) {
 		JOptionPane.showMessageDialog(null, "Falha catastrófica \n"+e.getMessage());
