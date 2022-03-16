@@ -7,7 +7,7 @@ import cursojava.classes.Disciplina;
 
 public class AarrayVetor {
 	public static void main(String[] args) {
-		
+		//versão 13.6
 		try {
 		double [] notas = {8.8,9.7,7.6,5.4};
 		double [] notasLogica = {9.9,7.9,6.9,9.7};
