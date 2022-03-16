@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Disciplina {
 
-	
+	/*Cada disciplina terá 4 notas durante o ano todo*/
 	private double [] nota = new double [4];
 	private String disciplina;
 
