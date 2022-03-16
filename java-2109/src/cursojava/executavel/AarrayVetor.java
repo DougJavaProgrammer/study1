@@ -6,17 +6,16 @@ public class AarrayVetor {
 	public static void main(String[] args) {
 		
 		try {
-		
-		String posicoes = JOptionPane.showInputDialog(null, "Quantas posições o array deve ter? ");
-		double [] notas = new double [Integer.parseInt(posicoes)];
-		
-		for (int pos = 0; pos < notas.length; pos++) {
-			String valor = JOptionPane.showInputDialog("Qual o valor da posição "+ (pos+1));
-			notas [pos] = Double.parseDouble(valor);
-		}
-				
-		for (int pos = 0; pos < notas.length; pos++) {
-			System.out.println("Nota "+(pos+1) + " é = "+notas[pos]);
+		/*Diferentes formas de atribuição de valores*/
+		String [] valores = new String [4];
+		valores[0] = "douglas";
+		valores[1] = "90";
+		valores[2] = "curso de Java";
+		valores[3] = "dougmoroli@gmail.com";
+			
+								
+		for (int pos = 0; pos < valores.length; pos++) {
+			System.out.println("Valor na posição "+(pos+1) + " é = "+valores[pos]);
 	
 		}
 		
