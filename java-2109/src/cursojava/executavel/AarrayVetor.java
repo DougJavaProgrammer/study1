@@ -7,7 +7,7 @@ import cursojava.classes.Disciplina;
 
 public class AarrayVetor {
 	public static void main(String[] args) {
-		//versão 13.6
+		
 		try {
 		double [] notas = {8.8,9.7,7.6,5.4};
 		double [] notasLogica = {9.9,7.9,6.9,9.7};
@@ -28,6 +28,18 @@ public class AarrayVetor {
 		disciplina2.setDisciplina("Lógica de Programação");
 		disciplina2.setNota(notasLogica);
 		aluno.getDisciplinas().add(disciplina2);
+		
+		System.out.println("Nome do aluno: "+aluno.getNome()+"\n"+"Inscrito no curso: "+ aluno.getNomeEscola());
+		System.out.println("------Disciplinas do aluno-------");
+		
+		for (Disciplina d : aluno.getDisciplinas()) {
+			System.out.println("Disciplina: " + d.getDisciplina());
+			System.out.println("Notas da disciplina: ");
+			
+			for (int pos = 0; pos < d.getNota().length; pos++) {
+				System.out.println("Nota "+ (pos+1)+ " = "+d.getNota()[pos]);
+			}
+		}
 		
 		
 	}catch (Exception e) {
