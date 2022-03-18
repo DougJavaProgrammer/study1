@@ -28,37 +28,18 @@ public class AarrayVetor {
 			disciplina2.setDisciplina("Lógica de Programação");
 			disciplina2.setNota(notasLogica);
 			aluno.getDisciplinas().add(disciplina2);
-
-			System.out.println(
-					"Nome do aluno: " + aluno.getNome() + "\n" + "Inscrito no curso: " + aluno.getNomeEscola());
-			System.out.println("------Disciplinas do aluno-------");
-
-			// for para percorrer a lista de displinas
-			for (Disciplina d : aluno.getDisciplinas()) {
-				System.out.println("Disciplina: " + d.getDisciplina());
-				System.out.println("Notas da disciplina: ");
-
-				double notaMax = 0.0; // variável auxiliar para armazenar a maior nota do aluno
-				double notaMin = 0.0; // variável auxiliar para armazenar a menor nota do aluno
-
-				// for para percorrer as notas de cada disciplina
-				for (int pos = 0; pos < d.getNota().length; pos++) {
-					System.out.println("Nota " + (pos + 1) + " = " + d.getNota()[pos]);
-					if (pos == 0) {
-						notaMax = d.getNota()[pos];
-						notaMin = d.getNota()[pos];
-					} else {
-						if (d.getNota()[pos] > notaMax) {
-							notaMax = d.getNota()[pos];
-						}
-					}
-					if (d.getNota()[pos] < notaMin) {
-						notaMin = d.getNota()[pos];
+			//-----------------------------------------------------------
+			Aluno[]arrayAlunos = new Aluno[1];
+			arrayAlunos[0] = aluno;
+			
+			for(int pos = 0; pos <arrayAlunos.length; pos++) {
+				System.out.println("Nome do aluno: "+arrayAlunos[pos].getNome());
+				for (Disciplina d : arrayAlunos[pos].getDisciplinas() ) {
+					System.out.println("Disciplina: "+d.getDisciplina());
+					for (int posNota = 0; posNota < d.getNota().length; posNota++) {
+						System.out.println("Nota "+posNota+ " = "+d.getNota()[posNota]);
 					}
 				}
-				System.out.println("A maior nota da disciplina " + d.getDisciplina() + " é " + notaMax);
-				System.out.println("A menor nota da disciplina " + d.getDisciplina() + " é " + notaMin);
-
 			}
 
 		} catch (Exception e) {
