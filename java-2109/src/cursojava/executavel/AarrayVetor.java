@@ -30,14 +30,14 @@ public class AarrayVetor {
 			aluno.getDisciplinas().add(disciplina2);
 			//-----------------------------------------------------------
 			Aluno[]arrayAlunos = new Aluno[1];
-			arrayAlunos[0] = aluno;
+			arrayAlunos[0] = aluno; //array do aluno1 na primeira posição
 			
 			for(int pos = 0; pos <arrayAlunos.length; pos++) {
 				System.out.println("Nome do aluno: "+arrayAlunos[pos].getNome());
 				for (Disciplina d : arrayAlunos[pos].getDisciplinas() ) {
 					System.out.println("Disciplina: "+d.getDisciplina());
 					for (int posNota = 0; posNota < d.getNota().length; posNota++) {
-						System.out.println("Nota "+posNota+ " = "+d.getNota()[posNota]);
+						System.out.println("Nota "+(posNota+1)+ " = "+d.getNota()[posNota]);
 					}
 				}
 			}
