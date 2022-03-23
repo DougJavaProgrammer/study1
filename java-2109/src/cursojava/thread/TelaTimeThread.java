@@ -4,7 +4,7 @@ import java.awt.Dimension;
 
 import javax.swing.JDialog;
 
-public class TelaTimeThread extends JDialog{
+public class TelaTimeThread extends JDialog{ //necessário extender a classe JDialog
 	
 	public TelaTimeThread() { //executa o que tiver dentro no momento de abertura ou execução
 		setTitle("Minha tela de time com Thread"); //título da tela
