@@ -36,6 +36,7 @@ public class TelaTimeThread extends JDialog { // necessário extender a classe JD
 			while (true) { // fica sempre rodando
 				mostraTempo.setText(
 						new SimpleDateFormat("dd/MM/yyyy - hh:mm:ss").format(Calendar.getInstance().getTime()));
+						
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
@@ -46,8 +47,27 @@ public class TelaTimeThread extends JDialog { // necessário extender a classe JD
 		}
 	};
 
+	private Runnable thread2 = new Runnable() {
+
+		@Override
+		public void run() {
+			while (true) { // fica sempre rodando
+				mostraTempo2.setText(
+						new SimpleDateFormat("dd/MM/yyyy - hh:mm.ss").format(Calendar.getInstance().getTime()));
+						
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+	};
+	
 	private Thread thread1Time; // instancia global para ser possivel iniciar um objeto em qualquer parte do
 								// código
+	private Thread thread2Time;
 
 	public TelaTimeThread() { // executa o que tiver dentro no momento de abertura ou execução
 		setTitle("Minha tela de time com Thread"); // título da tela
@@ -102,6 +122,10 @@ public class TelaTimeThread extends JDialog { // necessário extender a classe JD
 			public void actionPerformed(ActionEvent e) {
 				thread1Time = new Thread(thread1);
 				thread1Time.start();
+				thread2Time = new Thread(thread2);
+				thread2Time.start();
+				jButton.setEnabled(false);
+				jButton2.setEnabled(true);
 			}
 		});
 
@@ -110,9 +134,13 @@ public class TelaTimeThread extends JDialog { // necessário extender a classe JD
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				thread1Time.stop();
+				thread2Time.stop();
+				jButton.setEnabled(true);
+				jButton2.setEnabled(false);
 			}
 		});
-
+		
+		jButton2.setEnabled(false); //botão stop inicia desabilitado
 		add(jPanel, BorderLayout.WEST);
 
 		// sempre será o último comando
