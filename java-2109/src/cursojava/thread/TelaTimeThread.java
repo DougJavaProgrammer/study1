@@ -29,9 +29,7 @@ public class TelaTimeThread extends JDialog { // necessário extender a classe JD
 	private JButton jButton = new JButton("Gerar");
 	private JButton jButton2 = new JButton("Stop");
 
-	
 	private ImplementacaoFilaThread fila = new ImplementacaoFilaThread();
-	
 
 	public TelaTimeThread() { // executa o que tiver dentro no momento de abertura ou execução
 		setTitle("Minha tela de time com Thread"); // título da tela
@@ -82,11 +80,20 @@ public class TelaTimeThread extends JDialog { // necessário extender a classe JD
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				if(fila == null) {
+					fila = new ImplementacaoFilaThread();
+					fila.start();
+				}
+				
+				for(int qtd = 0; qtd <100; qtd++) { //simulando 100 envios em massa
+					
 				ObjetoFilaThread filaThread = new ObjetoFilaThread();
 				filaThread.setNome(mostraTempo.getText());
-				filaThread.setEmail(mostraTempo2.getText());
+				filaThread.setEmail(mostraTempo2.getText()+ " - "+qtd);
 				
 				fila.add(filaThread);
+				}
 			
 			}
 		});
@@ -95,7 +102,8 @@ public class TelaTimeThread extends JDialog { // necessário extender a classe JD
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			
+				fila.stop();
+				fila = null;
 			}
 		});
 		
