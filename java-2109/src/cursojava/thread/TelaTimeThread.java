@@ -20,54 +20,18 @@ public class TelaTimeThread extends JDialog { // necessário extender a classe JD
 	/* Componentes da tela */
 	private JPanel jPanel = new JPanel(new GridBagLayout()); // painel de componentes
 
-	private JLabel descricaoHora = new JLabel("Time Thread 1");
+	private JLabel descricaoHora = new JLabel("Nome");
 	private JTextField mostraTempo = new JTextField();
 
-	private JLabel descricaoHora2 = new JLabel("Time Thread 2");
+	private JLabel descricaoHora2 = new JLabel("E-mail");
 	private JTextField mostraTempo2 = new JTextField();
 
-	private JButton jButton = new JButton("Start");
+	private JButton jButton = new JButton("Gerar");
 	private JButton jButton2 = new JButton("Stop");
 
-	private Runnable thread1 = new Runnable() {
-
-		@Override
-		public void run() {
-			while (true) { // fica sempre rodando
-				mostraTempo.setText(
-						new SimpleDateFormat("dd/MM/yyyy - hh:mm:ss").format(Calendar.getInstance().getTime()));
-						
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-
-		}
-	};
-
-	private Runnable thread2 = new Runnable() {
-
-		@Override
-		public void run() {
-			while (true) { // fica sempre rodando
-				mostraTempo2.setText(
-						new SimpleDateFormat("dd/MM/yyyy - hh:mm.ss").format(Calendar.getInstance().getTime()));
-						
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-
-		}
-	};
 	
-	private Thread thread1Time; // instancia global para ser possivel iniciar um objeto em qualquer parte do
-								// código
-	private Thread thread2Time;
+	private ImplementacaoFilaThread fila = new ImplementacaoFilaThread();
+	
 
 	public TelaTimeThread() { // executa o que tiver dentro no momento de abertura ou execução
 		setTitle("Minha tela de time com Thread"); // título da tela
@@ -94,7 +58,6 @@ public class TelaTimeThread extends JDialog { // necessário extender a classe JD
 		mostraTempo.setPreferredSize(new Dimension(200, 25));
 		gridBagConstraints.gridy++; // andou uma posição da coluna Y para baixo para mostrar o segundo componente
 									// mostraTempo
-		mostraTempo.setEditable(false);
 		jPanel.add(mostraTempo, gridBagConstraints);
 
 		descricaoHora2.setPreferredSize(new Dimension(200, 25));
@@ -103,7 +66,6 @@ public class TelaTimeThread extends JDialog { // necessário extender a classe JD
 
 		mostraTempo2.setPreferredSize(new Dimension(200, 25));
 		gridBagConstraints.gridy++;
-		mostraTempo2.setEditable(false);
 		jPanel.add(mostraTempo2, gridBagConstraints);
 
 		gridBagConstraints.gridwidth = 1; // os botoes vao ocupar tamanho 1, para alinhamento
@@ -120,12 +82,12 @@ public class TelaTimeThread extends JDialog { // necessário extender a classe JD
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				thread1Time = new Thread(thread1);
-				thread1Time.start();
-				thread2Time = new Thread(thread2);
-				thread2Time.start();
-				jButton.setEnabled(false);
-				jButton2.setEnabled(true);
+				ObjetoFilaThread filaThread = new ObjetoFilaThread();
+				filaThread.setNome(mostraTempo.getText());
+				filaThread.setEmail(mostraTempo2.getText());
+				
+				fila.add(filaThread);
+			
 			}
 		});
 
@@ -133,14 +95,11 @@ public class TelaTimeThread extends JDialog { // necessário extender a classe JD
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				thread1Time.stop();
-				thread2Time.stop();
-				jButton.setEnabled(true);
-				jButton2.setEnabled(false);
+			
 			}
 		});
 		
-		jButton2.setEnabled(false); //botão stop inicia desabilitado
+		fila.start();
 		add(jPanel, BorderLayout.WEST);
 
 		// sempre será o último comando
