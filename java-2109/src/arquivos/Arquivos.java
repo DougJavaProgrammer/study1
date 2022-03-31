@@ -28,7 +28,7 @@ public class Arquivos {
 		pessoas.add(pessoa2);
 		pessoas.add(pessoa3);
 		
-		File arquivo = new File("C:\\Users\\Douglas\\git\\study1\\java-2109\\src\\arquivos\\arquivo.txt");
+		File arquivo = new File("C:\\Users\\Douglas\\git\\study1\\java-2109\\src\\arquivos\\arquivo.csv");
 		
 		if(!arquivo.exists()) { //se o arquivo nãe existir
 			arquivo.createNewFile(); //criar um novo arquivo
