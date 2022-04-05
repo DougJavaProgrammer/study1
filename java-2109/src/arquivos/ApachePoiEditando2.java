@@ -11,7 +11,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 
-public class ApachePoiEditando {
+public class ApachePoiEditando2 {
 	public static void main(String[] args) throws IOException {
 		File file = new File("C:\\Users\\Douglas\\git\\study1\\java-2109\\src\\arquivos\\arquivo_excel.xls");
 		if (!file.exists()) {
@@ -26,9 +26,11 @@ public class ApachePoiEditando {
 
 		while (linhaIterator.hasNext()) { // enquanto tiver linhas
 			Row linha = linhaIterator.next(); //dados da pessoa na linha
-			int numeroCelulas = linha.getPhysicalNumberOfCells(); // retorna o numero de células físicas de cada linha
-			Cell cell = linha.createCell(numeroCelulas); //cria nova celula para adicionar por exemplo o salario abaixo em cada linha
-			cell.setCellValue("5.487,20"); //salario a ser adicionada em cada linha
+			
+			
+			String valorCelula = linha.getCell(0).getStringCellValue();
+			linha.getCell(0).setCellValue(valorCelula + " * Valor gravado na aula");
+			
 		}
 		entrada.close();
 		FileOutputStream saida = new FileOutputStream(file);
